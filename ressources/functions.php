@@ -1,8 +1,9 @@
 <?php 
 // helper function
-function redirect($location){
-    header("Location: $location");
-}
+
+// function redirect($location){
+//     header("Location: $location");
+// }
 
 function query($sql){
     global $connection;

@@ -1,10 +1,13 @@
 <?php require_once("../ressources/config.php");?>
 
-<?php include("../ressources/front/header.php")?>
+<!-- <?php include("../ressources/front/header.php")?> -->
+<?php include(TEMPLATE_FRONT . DS . "header.php");?>
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <?php include("../ressources/front/top-nav.php")?>
+    <!-- <?php include("../ressources/front/top-nav.php")?> -->
+    <?php include(TEMPLATE_FRONT . DS . "top-nav.php");?>)
         
         <!-- /.container -->
     </nav>
@@ -35,6 +38,7 @@
         <hr>
 
 
-    <?php include("../ressources/front/footer.php")?>
+    <?php include(TEMPLATE_FRONT . DS . "footer.php");?>
+
 
     </div>

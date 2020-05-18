@@ -2,8 +2,9 @@
 require_once("../ressources/config.php");
 ?>
 
-<?php include("../ressources/front/header.php")?>
-<!-- <?php include(TEMPLATE_FRONT . "header.php")?> -->
+<!-- <?php include("../ressources/templates/front/header.php");?> -->
+<?php include(TEMPLATE_FRONT . DS . "header.php");?>
+
 
     <!-- Page Content -->
     <div class="container">
@@ -11,12 +12,14 @@ require_once("../ressources/config.php");
         <div class="row">
 
         <!-- sidebar -->
-        <?php include("../ressources/front/side_nav.php")?>
+        <!-- <?php include("../ressources/templates/front/side_nav.php")?> -->
+        <?php include(TEMPLATE_FRONT . DS . "side_nav.php");?>)
 
 
             <div class="col-md-9">
 
-            <?php include("../ressources/front/slider.php")?>
+            <!-- <?php include("../ressources/templates/front/slider.php")?> -->
+            <?php include(TEMPLATE_FRONT . DS . "slider.php"); ?>
 
                 <div class="row">
 
@@ -45,4 +48,4 @@ require_once("../ressources/config.php");
 
         <hr>
 
-        <?php include("../ressources/front/footer.php")?>
+        <?php include(TEMPLATE_FRONT . DS . "footer.php");?> 

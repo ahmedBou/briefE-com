@@ -31,7 +31,5 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <?php include("../ressources/front/top-nav.php")?>
-
-        <!-- /.container -->
+    <?php include(TEMPLATE_FRONT .DS. "top-nav.php");?>
     </nav>

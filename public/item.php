@@ -2,7 +2,9 @@
 require_once("../ressources/config.php");
 ?>
 
-<?php include("../ressources/front/header.php")?>
+<!-- <?php include("../ressources/front/header.php")?> -->
+<?php include(TEMPLATE_FRONT . DS . "header.php");?>
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -47,12 +49,14 @@ require_once("../ressources/config.php");
     <div class="container">
 
        <!-- Side Navigation -->
-       <?php include("../ressources/front/side_nav.php")?>
+       <!-- <?php include("../ressources/front/side_nav.php")?> -->
+        <?php include(TEMPLATE_FRONT . DS . "side_nav.php");?>)
+
         <?php
         $query = query("SELECT * FROM products WHERE product_id=" . escape_string($_GET['id']));
         confirm($query);
         while($row = fetch_array($query)):
-            echo $row['product_title']
+            // echo $row['product_title']
         ?>
 
         <div class="col-md-9">
@@ -245,4 +249,6 @@ require_once("../ressources/config.php");
 
         <hr>
 
-        <?php include("../ressources/front/footer.php")?>
+        <!-- <?php include("../ressources/front/footer.php")?> -->
+    <?php include(TEMPLATE_FRONT . DS . "footer.php");?>)
+

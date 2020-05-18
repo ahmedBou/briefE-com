@@ -1,16 +1,17 @@
 
 <!-- Configuration-->
-
-<?php require_once("../resources/config.php"); ?>
-
+<?php 
+require_once("../ressources/config.php");
+?>
 
 <!-- Header-->
-<?php include(TEMPLATE_FRONT .  "/header.php");?>
+
+<?php include(TEMPLATE_FRONT . DS . "header.php");?>
 
 
      <!--Navigation -->
 
-<?php include(TEMPLATE_FRONT .  "/top_nav.php");?>
+
 
          <!-- Contact Section -->
 
@@ -58,4 +59,4 @@
 
     </div>
     <!-- /.container -->
-<?php include(TEMPLATE_FRONT .  "/footer.php");?>
+<?php include(TEMPLATE_FRONT .DS.  "footer.php");?>
