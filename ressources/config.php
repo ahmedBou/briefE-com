@@ -10,8 +10,8 @@ session_start();
 defined("DS") ? null : define("DS", DIRECTORY_SEPARATOR);
 
 defined("TEMPLATE_FRONT") ? null: define("TEMPLATE_FRONT", __DIR__ . DS . "templates/front");
-echo TEMPLATE_FRONT;
-// defined("TEMPLATE_BACK") ? null: define("TEMPLATE_BACK", __DIR__ . DS . "templates/back");
+// echo TEMPLATE_FRONT;
+defined("TEMPLATE_BACK") ? null: define("TEMPLATE_BACK", __DIR__ . DS . "templates/back");
 
 defined("DB_HOST") ? null: define("DB_HOST","localhost");
 defined("DB_USER") ? null: define("DB_USER","root");

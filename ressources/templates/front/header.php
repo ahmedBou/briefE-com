@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>chri hani</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,5 +31,5 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <?php include(TEMPLATE_FRONT .DS. "top-nav.php");?>
+    <?php include(TEMPLATE_FRONT . "/top-nav.php");?>
     </nav>

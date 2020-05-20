@@ -7,7 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php">Start Bootstrap</a>
+                <a class="navbar-brand" href="index.php">chri hani</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -16,13 +16,13 @@
                         <a href="shop.php">Shop</a>
                     </li>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="login.php">Login</a>
                     </li>
                     <li>
                         <a href="admin">Admin</a>
                     </li>
                      <li>
-                        <a href="checkout.html"></a>
+                        <a href="checkout.php">checkout</a>
                     </li>
                     <li>
                         <a href="contact.php">Contact</a>

@@ -1,9 +1,25 @@
 <?php 
-// helper function
 
-// function redirect($location){
-//     header("Location: $location");
-// }
+// helper function
+function set_message($msg){
+    if(!empty($msg)){
+        $_SESSION['message'] = $msg;
+    }else{
+        $msg = "";
+    }
+}
+
+function display_message(){
+    if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        // will go when we refresh
+        unset($_SESSION['message']);
+    }
+}
+
+function redirect($location){
+    header("Location: $location");
+}
 
 function query($sql){
     global $connection;
@@ -106,6 +122,53 @@ function get_products_in_shop_page(){
         echo $product;
     }
 }
+
+
+
+// LOGIN
+function login(){
+    if(isset($_POST['submit'])){
+        $username = escape_string($_POST['username']);
+        $email = $_POST['email'];
+        $password = escape_string($_POST['password']);
+        $query = query("SELECT * FROM users WHERE username = '{$username}'AND email='{$email}' AND password = '{$password}'");
+        confirm($query);
+        
+
+        if(mysqli_num_rows($query) == 0){
+            set_message("Your PASSWORD or USERNAME are wrong");
+            redirect("login.php");
+        }else{
+            $_SESSION['username'] = $username;
+            set_message("Welcome To ADMIN {$username}");
+
+            redirect("admin");
+        }
+    }
+}
+
+// contact : send msg
+function send_message(){
+    if(isset($_POST['submit'])){
+        $to = "EmailAdress@gmail.com";
+        $from_name = $_POST['name'];
+        $email     = $_POST['email'];
+        $subject   = $_POST['subject'];
+        $message   = $_POST['message'];
+    
+        $headers = "From: {$from_name} {$email}";
+        $result = mail($to, $subject, $message, $headers);
+        if(!$result){
+            set_message("Sorry we couldn't send your msg");
+            redirect("contact.php");
+        }else{
+            set_message("Your message has been sent");
+            redirect("contact.php");
+        }
+    }
+
+}
+
 
 // *********************************************BAck End**********************************************
 
