@@ -55,8 +55,8 @@ function get_products(){
                         <h4 class="pull-right">{$row['product_price']} dh</h4>
                         <h4><a href="product.html">{$row['product_title']}</a>
                         </h4>
-                        <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                        <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}">Chri hani</a>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum incidunt neque blanditiis eum velit.</p>
+                        <a class="btn btn-primary" target="_blank" href="cart.php?add={$row['product_id']}">Chri hani</a>
                     </div>
                 </div>
             </div>
@@ -100,6 +100,7 @@ function get_products_in_cat_page(){
         echo $product;
     }
 }
+
 function get_products_in_shop_page(){
     $query = query("SELECT * FROM products");
     confirm($query);

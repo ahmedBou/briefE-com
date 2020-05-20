@@ -42,6 +42,4 @@
 
     <div class="container">
 
-        <hr>
-
 <?php include(TEMPLATE_FRONT ."/footer.php")?>

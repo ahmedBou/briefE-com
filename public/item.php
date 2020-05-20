@@ -247,8 +247,6 @@ require_once("../ressources/config.php");
     <div class="container">
 
 
-        <hr>
 
-        <!-- <?php include("../ressources/front/footer.php")?> -->
     <?php include(TEMPLATE_FRONT . DS . "footer.php");?>)
 

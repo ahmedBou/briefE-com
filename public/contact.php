@@ -64,3 +64,4 @@ require_once("../ressources/config.php");
 
     </div>
     <!-- /.container -->
+<?php include(TEMPLATE_FRONT . "/footer.php")?>

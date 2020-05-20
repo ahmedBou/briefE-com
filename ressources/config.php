@@ -1,9 +1,10 @@
 <?php 
 
 ob_start();
-
-
 session_start();
+
+// session destroy is just for debuggin
+// session_destroy();
 
 // setup my path so i can use my files easier when im including requiring or using it with fcts or displaying img
 // want to make sure that whatever path we're using is compatible with mac windows or lunix
@@ -21,8 +22,6 @@ defined("DB_NAME") ? null: define("DB_NAME","ecommerce");
 defined("DB_PORT") ? null: define("DB_PORT","3307");
 
 $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME, DB_PORT);
-
 require_once("functions.php");
-
 
 ?>

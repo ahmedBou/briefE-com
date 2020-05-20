@@ -44,7 +44,6 @@
 
         <!-- /.row -->
 
-        <hr>
 
 
     <!-- <?php include("../ressources/front/footer.php")?> -->
