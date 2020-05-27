@@ -32,7 +32,7 @@ require_once("../ressources/config.php");
         <div class="row">
 
             <div class="col-md-7">
-            <img class="img-responsive" src="<?php echo $row['product_image']; ?>" alt="">
+            <img class="img-responsive" <img src="../ressources/uploads/<?php echo $row['product_image'];?>">
 
             </div>
 
@@ -62,7 +62,7 @@ require_once("../ressources/config.php");
             
                 <form action="">
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="ADD TO CART">
+                    <a class="btn btn-primary" target="_blank" href="../ressources/cart.php?add=<?php echo $row['product_id']; ?>">chri hani</a>
                     </div>
                 </form>
 

@@ -18,9 +18,9 @@
                 <div class="form-group"><label for="">
                     username<input type="text" name="username" class="form-control"></label>
                 </div>
-                <div class="form-group"><label for="">
+                <!-- <div class="form-group"><label for="">
                     Email<input type="email" name="email" class="form-control"></label>
-                </div>
+                </div> -->
                  <div class="form-group"><label for="password">
                     Password<input type="password" name="password" class="form-control"></label>
                 </div>

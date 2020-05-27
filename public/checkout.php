@@ -1,6 +1,5 @@
 <?php require_once("../ressources/config.php");?>
 <?php include(TEMPLATE_FRONT .DS. "header.php"); ?>
-<?php require_once("cart.php");?>
 
 
 <?php 
@@ -9,8 +8,14 @@ if(isset($_SESSION['product_1'])){
     // echo $_SESSION['item_total'];
 }
 ?> 
-
-
+<!-- <?php
+if(isset($_GET['submit'])){
+$amount = $_GET['amount'];
+$amount = $_GET['amount'];
+$amount = $_GET['amount'];
+$amount = $_GET['amount'];
+}
+?> -->
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <?php include(TEMPLATE_FRONT . "/top-nav.php"); ?>
@@ -23,7 +28,9 @@ if(isset($_SESSION['product_1'])){
     <div class="row">
         <h4 class="text-center bg-danger"><?php echo display_message(); ?></h4>
         <h1>Panier</h1>
-            <form action="">
+        <form action="" method="post">
+
+
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -37,6 +44,10 @@ if(isset($_SESSION['product_1'])){
                         <?php cart(); ?>
                     </tbody>
                 </table>
+
+                <div class="form-group">
+                  <input type="submit" name="submit" class="btn btn-primary">
+                </div>
             </form>
 
 <!--  ***********CART TOTALS*************-->
@@ -64,7 +75,7 @@ if(isset($_SESSION['product_1'])){
                         ?>
 
             
-                    </span></strong> </td>
+                    </span>dh</strong> </td>
                 </tr>
             </tbody>
         </table>
