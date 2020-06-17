@@ -1,21 +1,26 @@
 <?php require_once("../ressources/config.php");?>
 <?php include(TEMPLATE_FRONT .DS. "header.php"); ?>
 
+<?php
+ if(isset($_POST["submit"])){
+    foreach($_SESSION as $name=>$value){
+        if($value>0){
+            if(substr($name, 0, 8) == "product_"){ 
+                $length = strlen($name)-8;
+                // echo $length;
+                $id = substr($name, 8, $length);
+                // $id = str_replace("", "product_", $name);
+  
 
-<?php 
-if(isset($_SESSION['product_1'])){
-    echo $_SESSION['product_1'];
-    // echo $_SESSION['item_total'];
-}
-?> 
-<!-- <?php
-if(isset($_GET['submit'])){
-$amount = $_GET['amount'];
-$amount = $_GET['amount'];
-$amount = $_GET['amount'];
-$amount = $_GET['amount'];
-}
-?> -->
+                $query = query("INSERT INTO orders(product_id,order_amount,order_quantity)VALUES({$id},{$_SESSION['item_total']},{$value})");
+                confirm($query);
+     
+            }
+        }
+    }
+     
+ }?>
+
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <?php include(TEMPLATE_FRONT . "/top-nav.php"); ?>
@@ -44,8 +49,15 @@ $amount = $_GET['amount'];
                         <?php cart(); ?>
                     </tbody>
                 </table>
-
+                <?php
+                // if(isset($_GET['add'])){
+                //     echo "<script>alert('hello')</script>";
+                //     $sql = "INSERT INTO orders(product_id,order_quantity)VALUES({$_SESSION['product_'.$_GET['add']]},{$_SESSION["item_quantity"]})";
+                //     echo $_SESSION['product_'.$_GET['add']];
+                // }
+                // ?>
                 <div class="form-group">
+            
                   <input type="submit" name="submit" class="btn btn-primary">
                 </div>
             </form>

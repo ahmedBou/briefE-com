@@ -6,10 +6,11 @@
 // add will have the id of our product, everytime is called it will will be concatenating with session and add one
 // so we click on add we get these request and we're going to increment one everytime.
 if(isset($_GET['add'])){
-    $query = query("SELECT * FROM products WHERE product_id=" . escape_string($_GET['add']) . " ");
+    $query = query("SELECT * FROM products WHERE product_id=" . escape_string($_GET['add']));
     confirm($query);
+
     while($row= fetch_array($query)){
-        if($row['product_quantity'] != $_SESSION["product_".$_GET['add']] ){
+        if($row['product_quantity'] >= $_SESSION["product_".$_GET['add']]){
             $_SESSION["product_".$_GET['add']] += 1;
             redirect("../public/checkout.php");
         }else{
@@ -45,6 +46,7 @@ if(isset($_GET['delete'])) {
 }
 
 function cart(){
+    
     $total = 0;
     $item_quantity = 0;
     $item_name = 1;
@@ -58,18 +60,20 @@ function cart(){
                 // echo $length;
                 $id = substr($name, 8, $length);
                 // $id = str_replace("", "product_", $name);
-
-
+  
 
                 $query = query("SELECT * FROM products WHERE product_id = ".escape_string($id)."");
                 confirm($query);
                 while($row=fetch_array($query)){
+                    // print_r($row);
                     $sub = $row['product_price'] * $value;
+                    // $product = $row['product_id']+1; #  => 35
+                    // echo $product;
                     $item_quantity += $value; 
                     $product = <<<DELIMETER
                         <tr>
                             <td>{$row["product_title"]}<br>
-                            <img src="../ressources/uploads/{$row['product_image']}">
+                            <img width=100 src="../ressources/uploads/{$row['product_image']}">
                             </td>
                             <td>{$row['product_price']} dh</td>
                             <td>{$value}</td>
@@ -86,15 +90,34 @@ function cart(){
                     echo $product;
                     $item_name++;
                     $item_number++;
+    
                     $amount++;
+                    echo $amount;
+        
                     $quantity++;
+                    
+                    
+                    $_SESSION['item_total'] = $total += $sub;
+                    $_SESSION['item_quantity'] = $item_quantity;
+                    // echo $_SESSION['item_quantity'] ;
+                
+                    // echo "<script>alert('hello')</script>";
+                    // $sql = "INSERT INTO orders(product_id,order_quantity)VALUES({$product},{$_SESSION['item_quantity']})";
+                    // $last_id = last_id();
+                    // // echo $last_id ;
+                    // confirm($sql);
+                    // echo $_SESSION['product_id'];
+            
+                    
+                    // $final_quantity = $_SESSION['item_quantity'] - $quantity;
+                    // $sql = "INSERT INTO orders(product_id,order_quantity)VALUES({$row['product_id']},{$_SESSION['item_quantity']})";
+                   
+                    // $send_order = query("UPDATE products SET product_quantity = {$item_number} WHERE  product_id = {escape_string($id)}");
+                    // $last_id = last_id();
+                    // session_destroy();
+                    // confirm($send_order);
+    
                 }
-                $_SESSION['item_total'] = $total += $sub;
-                $_SESSION['item_quantity'] = $item_quantity;
-                $send_order = query("INSERT INTO orders(order_amount,product_id,order_quantity) VALUES({$total},{$item_number},{$quantity})");
-                // $last_id = last_id();
-                // session_destroy();
-                confirm($send_order);
 
             }
         }
